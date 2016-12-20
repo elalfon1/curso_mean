@@ -13,13 +13,34 @@
 				resultado += ", " + arguments[i];
 			}
 			
+			for(argumento in arguments){ //Solo muestra las posiciones, es para objetos mas bien
+				resultado += ", "+ argumento;
+			}
+			
+			if(arguments.length > 0){
+				switch (arg1){
+					case 0: console.log("Valor 0");
+						break;
+					case 1: console.log("Valor 1");
+						break;
+					case 2: console.log("Valor 2");
+						break;
+					case 3: console.log("Valor 3");
+						break;
+					default: console.log("Cualquier otro");
+						break;
+				
+				}
+			}
+			
+			
 			return resultado;
 		}
 	</script>
 	<script>
 		console.log(listarArgumentos());
 		console.log(listarArgumentos(1));
-		console.log(listarArgumentos(1,2));
+		console.log(listarArgumentos(2,3));
 		console.log(listarArgumentos(1,2,3,4));
 	</script>
 </html>
