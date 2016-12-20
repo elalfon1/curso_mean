@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mi primera página</title>
+	</head>
+	<body></body>
+	<script>
+
+		var fecha = new Date();
+		console.log("Fecha al crear: " + fecha.getFullYear());
+		var otraFecha = fecha; //Es otra referencia al objeto Date
+		var otraFecha = new Date(fecha); //Es una copia del objeto
+		
+		fecha.setFullYear(1989);
+		
+		console.log("Año: "+ fecha.getFullYear());
+		
+		
+		function cambiarYear(unaFecha){
+			unaFecha.setFullYear(2011);
+			
+			console.log("Año en función: "+ unaFecha.getFullYear());
+		}
+		
+		console.log("Año fuera función: "+ fecha.getFullYear());
+		console.log("Año otra fecha función: "+ otraFecha.getFullYear());
+		
+		console.log("Cambiamos con cambiarYear()");
+		cambiarYear(fecha);
+		console.log("Año fuera función: "+ fecha.getFullYear());
+		console.log("Año otra fecha función: "+ otraFecha);
+	
+	</script>
+</html>

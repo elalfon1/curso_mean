@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mi primera página</title>
+	</head>
+	<body></body>
+	<script>
+
+		miFuncion();
+	
+		function miFuncion(){
+			var unaVariable = "Variable local";
+			
+			for(var i=0; i < 10; i++){ //Las variables son locales a una funcion, no al bucle
+				var otra = "otra";
+				console.log("Valor de i: "+ i);
+			}
+			console.log("Valor de i al final: " + i);
+			
+			var j=0;
+			for(; j < 10;){
+				var otra = "otra";
+				console.log("Valor de j: "+ j);
+				j++;
+			}
+			
+			do{
+				var vara = "vara";
+				console.log("Valor de i: "+ i);
+			}while(i < 0);
+			
+			console.log("Otra: " + otra);
+		}
+		
+		console.log("Otra fuera: " + otra);
+	
+	</script>
+</html>
