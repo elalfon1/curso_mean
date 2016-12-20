@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mi primera página</title>
+	</head>
+	<body></body>
+	<script>
+		var variableDeclarada = null;
+		var variableGlobal = null;
+		var booleano = true;
+		var variableNumerica = 7;
+		var variableCadena = "Una cadena de caracteres";
+		
+	// Tipos
+		console.log(typeof variableNoDeclarada);
+		console.log(typeof variableDeclarada);
+		console.log(typeof booleano);
+		console.log(typeof (true && true));
+		console.log(typeof variableNumerica);
+		console.log(typeof variableCadena);
+		
+	
+	/* Valores */	
+		//console.log(variableNoDeclarada);
+		console.log(variableDeclarada);	
+		console.log(booleano);
+		console.log((true && true));
+		console.log(variableNumerica);
+		console.log(variableCadena);
+		console.log("Concatenacion: "+ variableCadena
+					+", "+ variableDeclarada + ", " + booleano
+					+ ", " + (10/0));
+		console.log(isNaN(variableNumerica));
+		console.log(isNaN(variableCadena));
+		console.log("Texto 1 \n Texto 2 \t\t texto tabulado");
+		console.log("MUCHAS COMILLAS: \"\"\'\' \\ \\ \\");
+	</script>
+</html>

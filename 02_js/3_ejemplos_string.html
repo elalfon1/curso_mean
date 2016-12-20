@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mi primera página</title>
+	</head>
+	<body></body>
+	<script>
+		var cadena = "Ponemos cualquier texto.";
+		
+		console.log("******* EMPEZANDO CON CADENAS *******");
+		console.log("Longitud: " + cadena.length);
+		
+		console.log("Mayusculas: " + cadena.toUpperCase());
+		console.log("Minusculas: " + cadena.toLowerCase());
+		console.log("Caracter 4: " + cadena.charAt(4));
+		console.log("Caracter 4: " + cadena[4]); //Lo mismo que lo anterior
+		console.log("Index of \"t\": " + cadena.indexOf("t"));
+		console.log("Last index of \"t\": " + cadena.lastIndexOf("t"));
+		console.log("Substring desde 9: " + cadena.substring(9));
+		console.log("Substring desde 9, 4 caracteres: " + cadena.substring(9,4));
+		
+		var arrayDeCadena = cadena.split(" ");
+		console.log("Palabra 2da: " + arrayDeCadena[1]);
+		console.log("Palabra 6ta: " +  typeof arrayDeCadena[6]);
+		
+		
+		console.log("******* EMPEZANDO CON ARRAYS *******");
+		arrayDeCadena[6] = 83;
+		console.log("Elemento 2do: " +  typeof arrayDeCadena[1]);
+		console.log("Elemento 6to: " +  typeof arrayDeCadena[6]);
+		
+		console.log("Pop elemento 6: " +  arrayDeCadena.pop()); //sacamos el sexto
+		console.log("Pop elemento 6 después: " +  typeof arrayDeCadena[6]);
+		
+		arrayDeCadena.push("OTRO");
+		arrayDeCadena.push(7);
+		arrayDeCadena.push(false);
+		arrayDeCadena[18] = 83;
+		
+		console.log("Todo el array: " +arrayDeCadena.join(","));
+		
+		arrayDeCadena.reverse();
+		
+		var otraCadena = arrayDeCadena.join("*");
+		console.log("Union otraCadena: "+otraCadena);
+		
+		
+	</script>
+</html>
