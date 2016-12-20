@@ -6,29 +6,20 @@
 	</head>
 	<body></body>
 	<script>
-
-		var fecha = new Date();
-		console.log("Fecha al crear: " + fecha.getFullYear());
-		var otraFecha = fecha;
-		
-		fecha.setFullYear(1989);
-		
-		console.log("Año: "+ fecha.getFullYear());
-		
-		
-		function cambiarYear(unaFecha){
-			unaFecha.setFullYear(2011);
+		function listarArgumentos(arg1, arg2){
+			console.log("Número de argumentos recibidos: " + arguments.length);
+			var resultado = "";
+			for(var i = 0; i < arguments.length; i++){
+				resultado += ", " + arguments[i];
+			}
 			
-			console.log("Año en función: "+ unaFecha.getFullYear());
+			return resultado;
 		}
-		
-		console.log("Año fuera función: "+ fecha.getFullYear());
-		console.log("Año otra fecha función: "+ otraFecha.getFullYear());
-		
-		console.log("Cambiamos con cambiarYear()");
-		cambiarYear(fecha);
-		console.log("Año fuera función: "+ fecha.getFullYear());
-		console.log("Año otra fecha función: "+ otraFecha);
-	
+	</script>
+	<script>
+		console.log(listarArgumentos());
+		console.log(listarArgumentos(1));
+		console.log(listarArgumentos(1,2));
+		console.log(listarArgumentos(1,2,3,4));
 	</script>
 </html>
