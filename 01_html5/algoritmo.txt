@@ -1,0 +1,23 @@
+function comprobar(valor){
+
+	//comprobamos en lineas
+	for(var x = 0; x < 3; x++){
+		if(array[x][0] == valor && array[x][1] == valor && array[x][2] == valor)
+			return true;
+	}
+	
+	//comprobamos en columnas
+	for(var y = 0; y < 3; y++){
+		if(array[0][y] == valor && array[1][y] == valor && array[2][y] == valor)
+			return true;
+	}
+	
+	//comprobamos en diagonales
+	if(array[0][0] == valor && array[1][1] == valor && array[2][2] == valor)
+		return true;
+	if(array[0][2] == valor && array[1][1] == valor && array[2][0] == valor)
+		return true;
+
+	return false;
+	
+}
