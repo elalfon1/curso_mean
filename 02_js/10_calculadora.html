@@ -2,41 +2,46 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Intro objetos</title>
+		<title>Calculadora</title>
 	</head>
-	<body></body>
-	<script>
-		var numero = prompt("Dime numero alumnos:");
-		numero = parseInt(numero);
-		
-		var alumnos = new Array();
-		
-		for (var i = 0; i < numero; i++){
-			var nombre = prompt("Nombre alumno "+i);
-			var fecha = prompt("Fecha nacimiento (DD-MM-AAAA) "+i);
+	<body>
+		<form name="calc">
+			Operando 1: <input name="operando1" value="0" size="12" type="text">
+			<br/>
 			
-			var nuevoAlumno = new Object();
-			nuevoAlumno.nombre = nombre;
-			var infoFecha = fecha.split("-");
-			nuevoAlumno.fecha = new Date(
-									parseInt(infoFecha[2]), //Año
-									infoFecha[1]-1, //Meses van de 0 a 11
-									parseInt(infoFecha[0])
-								) //
-								
-			//alumnos.push(nuevoAlumno); //Otra forma
-			alumnos[i] = nuevoAlumno;
+			Operando 2: <input name="operando2" value="0" size="12" type="text">
+			<br/>
+			
+			<input name="" value=" + "
+				onclick="calcula('+')" type="button">
+				
+			<input name="" value=" - "
+				onclick="calcula('-')" type="button">
+				
+			<input name="" value=" * "
+				onclick="calcula('*')" type="button">
+				
+			<input name="" value=" / "
+			onclick="calcula('/')" type="button">
+			<br/>
+			
+			Resultado: <input name="resultado" value="0" size="12" type="text">
+		</form>
+		<div id="texto">Operaciones realizadas</div>
+	</body>
+	<script>
+		function calcula(operador){
+			var op1 = document.calc.operando1.value; //calc es el form
+			var op2 = document.calc.operando2.value;
+			
+			var result = eval(op1 + operador+ op2);
+			document.getElementById("texto").innerHTML += "<br>"+op1 + operador+ op2+"<br>";
+			
+			document.calc.resultado.value = result;
+			/*switch(operador){
+				case "+":	
+					break;
+			}*/
 		}
-		
-		document.write("<table>");
-		for(var i = 0; i < numero; i++){
-			document.write("<tr>");
-			document.write("<td>Nombre: "+alumnos[i].nombre+"</td>");
-			document.write("<td>Fecha: "+alumnos[i].fecha+"</td>");
-			document.write("</tr>");
-		}
-		document.write("</table>");
-		
-		
 	</script>
 </html>
