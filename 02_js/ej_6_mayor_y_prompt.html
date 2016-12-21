@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mi primera página</title>
+	</head>
+	<body></body>
+	<script>
+	
+		function comprobarMayor(miArrayInterno){
+		
+			for(var j=0; j < 3; j++){
+				miArrayInterno[j] = parseInt(miArrayInterno[j]); //SINO CASCA CON LOS NEGATIVOS
+			}
+		
+			var mayor = miArrayInterno[0];
+			
+			for(var i=1; i < miArrayInterno.length; i++){
+			
+				if(miArrayInterno[i] > mayor)
+					mayor = miArrayInterno[i];
+				
+			}
+			
+			return mayor;
+		}
+		
+		function comprobarPosNegCero(numero){
+			if(numero > 0)
+				return "positivo";
+			else if(numero < 0)
+				return "negativo";
+			else
+				return "cero";
+		}
+		
+		function comprobarPosNegCero2(numero){ //Con operador ternario
+			return numero > 0 ? "+" :
+								numero < 0 ? "-" :
+											"0";
+		}
+		
+		
+		
+		var miArrayParaMayor = new Array();
+		
+		for(var i=0; i < 3; i++){
+			do{
+				miArrayParaMayor[i] = prompt("Dame número para comprobar mayor ("+(i+1)+"):");
+			}while(isNaN(miArrayParaMayor[i]) || miArrayParaMayor[i] == null || miArrayParaMayor[i] == "");
+		}
+		
+		
+		
+		
+		var elMayor = comprobarMayor(miArrayParaMayor);
+		console.log("El mayor de ("+miArrayParaMayor+") es: "+elMayor);
+		
+		var numero = prompt("Dame un número y miramos que es:");
+		console.log("El número "+numero+" es: "+comprobarPosNegCero(numero));
+
+		console.log("El mayor de los anteriores era "+elMayor+" y es un número "+comprobarPosNegCero(elMayor));
+		
+		
+		
+		
+	</script>
+</html>
