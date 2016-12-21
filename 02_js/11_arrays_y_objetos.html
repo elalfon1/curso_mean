@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculadora</title>
+	</head>
+	<body>
+		<div id="texto"></div>
+	</body>
+	<script>
+		var div = document.getElementById("texto");
+		
+		var arrayUno = new Array();
+		
+		arrayUno[0] = "ELEMENTO 0";
+		arrayUno[1] = "ELEMENTO 1";
+		/*arrayUno["uno"] = "ELEMENTO 0";
+		arrayUno["dos"] = "ELEMENTO 1";*/
+		div.innerHTML += arrayUno + "<br/>";
+		
+		arrayUno["propiedad"] = "ELEMENTO PROP";
+		
+		arrayUno.toString = function(){
+		
+			var resultado = "";
+			for(var i = 0; i < this.length; i++){
+				resultado += ", "+ this[i];
+			}
+			return resultado + ", prop" + arrayUno.propiedad;
+		}
+		
+		div.innerHTML += arrayUno + "<br/>";
+		
+		
+		
+		
+		
+		
+		
+		var objetoUno = new Object();
+		var objetoDos = new Object();
+		var objetoTres = new Object();
+		
+		objetoUno["propiedad_1"] =  "Elemento prop 1";
+		objetoUno.propiedad_2 =  "Elemento prop 2";
+		
+		objetoUno.agregar = function(clave, valor){
+			this[clave] = clave + ": " + valor;
+		}
+		
+		objetoUno.toString2 = function(){
+			var resultado = "";
+			for(propiedad in this){ //Recorro sus propiedades, aunque solo devuelve la clave, NO el valor
+				resultado += "\"" + propiedad + "\": "
+					+ "\"" + this[propiedad] + "\"" + "<br/>";
+			}
+			return resultado;
+		}
+		
+		objetoUno.agregar("propiedad_3","Elemento prop 3");
+		objetoDos.otroAgregar = objetoUno.agregar;
+		objetoDos.toString2 = objetoUno.toString2;
+		objetoDos.otroAgregar("clave","valor");
+		
+		
+		div.innerHTML += "<br> objetoUno:<br/> "+ objetoUno.toString2() + "<br/>";
+		
+		div.innerHTML += "<br> objetoDos:<br/> "+ objetoDos.toString2() + "<br/>";
+		
+		
+		objetoTres.miObjeto = objetoUno.propiedad_1;
+		objetoUno.propiedad_1 = "zeneque"; //Como es primitivo no cambia en objetoTres
+		
+		div.innerHTML += "<br> objetoTres:<br/> "+ objetoTres.miObjeto + "<br/>";
+		
+	</script>
+</html>
