@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Reloj Javascript</title>
+	</head>
+	<body>
+		<form name="reloj" onSubmit="0">
+			<table>
+				<tr>
+					<td>Hoy es</td>
+					<td>La hora es</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="laFecha" value="" size="12"></td>
+					<td><input type="text" name="laHora" value="" size="12"></td>
+					<td><input type="text" name="laHora2" value="" size="16"></td>
+					<td><input type="text" name="laHora3" value="" size="16"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+	
+	<script src="15_reloj_POO.js"></script>
+	<script>
+		
+		var relojUno = new NuestroReloj(document.reloj.laHora);
+		var relojDos = new NuestroReloj(document.reloj.laHora2);
+		var relojTres = new NuestroReloj(document.reloj.laHora3);
+		
+		relojUno.comenzarReloj();
+		setTimeout("relojDos.comenzarReloj()",3000);
+		setTimeout("relojTres.comenzarReloj()",5000);
+							
+		
+	</script>
+</html>
