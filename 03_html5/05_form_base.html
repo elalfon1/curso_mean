@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Formularios</title>
+	</head>
+	<body>
+		<section>
+			<form name="miformulario" id="miformulario" method="get">
+				
+				Nombre: <input type="text" name="nombre" id="nombre" required pattern=".{5}" title="5 caracteres"/><br/>
+				Email: <input type="email" name="email" id="email" placeholder="email@dominio.ext"/><br/>
+				Color: <input type="color" name="color" id="color" /><br/>
+				URL: <input type="url" name="url" id="url" required/><br/>
+				Edad: <input type="number" name="edad" id="edad" min="20" max="45" step="1"/><br/>
+				Rango: <input type="range" name="rango" id="rango" min="-150" max="150" step="50"/><br/>
+				Fecha: <input type="date" name="fecha" id="fecha" required/><br/>
+				Hora: <input type="time" name="hora" id="hora"/><br/>
+				Fecha y hora: <input type="datetime-local" name="fechahora" id="fechahora"/><br/>
+				Mes: <input type="month" name="mes" id="mes"/><br/>
+				Semana: <input type="week" name="semana" id="semana"/><br/>
+				Teléfono: <input type="tel" name="telefono" id="telefono"/><br/>
+				Buscar: <input type="search" name="buscar" id="buscar"/><br/>
+				<datalist id="cafes">
+					<option value="Café solo" />
+					<option value="Café con leche" />
+					<option value="Café descafeinado"/>
+					<option value="Carajillo"/>
+					<option value="Latte Macchiatto"/>
+					<option value="Chocolate"/>
+				</datalist>
+				Lista cafés: <input type="cafe" name="cafe" id="cafe" list="cafes"/><br/>
+				<input type="submit" value="Enviar formulario">
+			</form>
+		</section>
+	</body>
+</html>
