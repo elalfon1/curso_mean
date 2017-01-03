@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expresiones regulares</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Validación con Expresiones Regulares
+        </h1>
+    </header>
+    <section>
+        <form name="miform" id="miform" onsubmit="return validaCampos(this)">
+            Número teléfono: <input type="text" name="tel" size="9" maxlength="9">
+            <br/> DNI: <input type="text" name="dni" size="9" maxlength="9">
+            <br/> <input type="submit" value="Enviar" name="enviar">
+        </form>
+    </section>
+</body>
+<script>
+    function validaCampos(formulario) {
+        var valido = false;
+
+        var expTel = /^[5-9]{1}\d{8}$/; //No empiece por 0,1,2,3,4
+        var expDni = /^[0-9]{8}[a-zA-Z]$/; //Si no pones {1} es lo mismo
+
+        var telefono = formulario.tel.value;
+        var dni = formulario.dni.value;
+
+        if (expTel.test(telefono)) {
+            if (expDni.test(dni)) {
+                alert("Gracias por rellenarlo correctamente");
+                valido = true;
+            } else {
+                alert("Campo DNI no válido");
+            }
+        } else {
+            alert("Campo TELEFONO no válido");
+        }
+
+        return valido;
+    }
+</script>
+
+</html>
