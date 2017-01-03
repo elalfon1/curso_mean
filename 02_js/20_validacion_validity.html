@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validación formulario</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Validación de Formulario
+        </h1>
+    </header>
+    <section>
+        <form name="miform" id="miform" onsubmit="return false">
+            Texto: <input type="text" id="texto" name="texto" required>
+            <br/> Email: <input type="email" name="email" required oninvalid="validacionPersonalizadaEmail(this)">
+            <br/> <input type="submit" value="Enviar" name="enviar">
+        </form>
+    </section>
+</body>
+<script>
+    /*document.getElementById("texto").addEventListener("invalid", function() {
+                                                    document.getElementById("texto").setCustomValidity("Debe contener 1 carácter")
+                                                });*/
+
+    function validacionPersonalizadaEmail(input) {
+        //var valTexto = document.forms.miform.texto.value;
+        input.setCustomValidity(valTexto);
+        console.log(input.validity.valid);
+        /*if (!input.validity.valid)
+            input.setCustomValidity(valTexto);*/
+    }
+</script>
+
+</html>

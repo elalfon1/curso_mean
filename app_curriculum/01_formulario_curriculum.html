@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Curriculum</title>
+</head>
+
+<body>
+    <header>
+        <h1>FORMULARIO CURRICULUM</h1>
+    </header>
+
+    <section>
+        <form name="miformulario" id="miformulario" onsubmit="return addJson(this)">
+
+            Empresa: <input type="text" name="empresa" id="empresa" maxlength="20" required/>
+            <br/> Cargo: <input type="text" name="cargo" id="cargo" maxlength="30" required/>
+            <br/> Fecha inicio: <input type="date" name="fecha_ini" id="fecha_ini" required/>
+            <br/> Fecha fin: <input type="date" name="fecha_fin" id="fecha_fin" required/>
+            <br/> Localización: <input type="text" name="localizacion" id="localizacion" maxlength="40" required/>
+            <input type="submit" value="AÑADIR">
+
+        </form>
+        <br/><br/>JSON:<br/><textarea name="json" id="json" cols="70" rows="15"></textarea>
+        <br/>
+        <input type="button" value="CARGAR Y MOSTRAR" onclick="cargarMostrar()">
+    </section>
+    <br/>
+    <section>
+        <header>
+            <h1>EXPERIENCIA:</h1>
+        </header>
+        <section id="experiencia">
+
+        </section>
+    </section>
+</body>
+
+<script>
+    var ESPACIOS = "&nbsp;&nbsp;&nbsp;&nbsp;";
+    var RETORNO = "<br/>";
+    var empresas = [];
+    var txtJson = document.getElementById("json");
+    var sctExperiencia = document.getElementById("experiencia");
+
+    function addJson(formulario) {
+
+        var nuevaEmpresa = {
+            nombre: formulario.empresa.value,
+            cargo: formulario.cargo.value,
+            fecha_inicio: formulario.fecha_ini.value,
+            fecha_fin: formulario.fecha_fin.value,
+            localizacion: formulario.localizacion.value
+        };
+        empresas.push(nuevaEmpresa);
+        //console.log();
+        txtJson.value = JSON.stringify(empresas);
+
+        pintarEmpresas();
+        return false;
+    }
+
+    function cargarMostrar() {
+        empresas = JSON.parse(txtJson.value);
+        pintarEmpresas();
+    }
+
+    function pintarEmpresas() {
+        sctExperiencia.innerHTML = "";
+        for (var i = 0; i < empresas.length; i++) {
+            sctExperiencia.innerHTML += RETORNO + "<p>";
+            sctExperiencia.innerHTML += empresas[i].nombre + ESPACIOS;
+            sctExperiencia.innerHTML += empresas[i].cargo + ESPACIOS;
+            sctExperiencia.innerHTML += empresas[i].localizacion + RETORNO + RETORNO;
+            sctExperiencia.innerHTML += empresas[i].fecha_inicio + ESPACIOS;
+            sctExperiencia.innerHTML += empresas[i].fecha_fin + "</p>";
+        }
+    }
+</script>
+
+</html>

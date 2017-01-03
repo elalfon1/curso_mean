@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Georeferenciando</title>
+</head>
+
+<body>
+    <section>
+        <input type="button" name="mensaje" value="Georeferenciar" onclick="queMeGeorreferencio()" />
+        <div id="mapa"></div>
+    </section>
+</body>
+<script type="text/javascript">
+    function queMeGeorreferencio() {
+
+        if (navigator.geolocation) {
+
+            var opciones = {
+                timeout: 6000,
+                maximumAge: 600000,
+                enableHighAccuracy: true
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                alRecibirGeo, errorEnGeo, opciones
+            );
+        } else {
+            alert("No soporto la localización");
+        }
+    }
+
+
+    function alRecibirGeo(posicion) {
+
+        var latitud = posicion.coords.latitude;
+        var longitud = posicion.coords.longitude;
+        /*alert("Latitud: " + posicion.coords.latitude +
+            ", longitud: " + posicion.coords.longitude +
+            ", Altitud: " + posicion.coords.altitude);*/
+
+        var imagenMapa = "http://maps.google.com/maps/api/staticmap?" +
+            "sensor=false&" +
+            "center=" + latitud + "," + longitud + "&" +
+            "zoom=14&" + "size=600x400&" +
+            "markers=color:red|label:P|" + latitud + "," + longitud;
+
+        var mapita = document.getElementById("mapa");
+        mapita.innerHTML = "<img src='" + imagenMapa + "'>";
+    }
+
+    function errorEnGeo(error) {
+        alert("Error codigo: " + error.message);
+    }
+</script>
+
+</html>
