@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Ejemplo API archivos
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1> Ejemplo API archivos
+        </h1>
+        <h2> Lista de ficheros
+        </h2>
+    </header>
+    <section>
+        <!--<input type="file" id="files" name="files[]" multiple />-->
+        <div id="zona_soltar">Suelta aqui los ficheros</div>
+        <output id="list"></output>
+    </section>
+</body>
+<script>
+    function capturarCambioInput(evt) {
+
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        //var ficheros = evt.target.files;
+        var ficheros = evt.dataTransfer.files;
+        var output = [];
+        for (var i = 0; f = ficheros[i]; i++) {
+            output.push(
+                "<li><strong>",
+                escape(f.name), +"</strong> (>",
+                f.type || "n/a", ") - ",
+                f.size, " bytes, ultima modificación: " + f.lastModifiedDate.toLocaleDateString(),
+                " </li> "
+            );
+        }
+        document.getElementById("list").innerHTML = "<ul>" + output.join("") + "</ul>";
+    }
+
+    //document.getElementById("files").addEventListener("change", capturarCambioInput, false);
+
+    function capturarEvtDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = "copy";
+    }
+
+    var zona_soltar = document.getElementById("zona_soltar");
+    zona_soltar.addEventListener("dragover", capturarEvtDragOver, false);
+    zona_soltar.addEventListener("drop", capturarCambioInput, false);
+</script>
+
+</html>
