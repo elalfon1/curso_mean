@@ -11,10 +11,13 @@
         <h1>Ejemplo - localStorage</h1>
     </header>
 
+
     <section>
-        <input type="text" name="nombre" id="nombre">
-        <input type="text" name="apellido" id="apellido">
+        <hr>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido">
         <input type="button" name="botonGuardar" value="Guardar" onclick="guardarStorage()">
+        <hr>
         <p>
             Nombre almacenado: <span id="nombreMostrar"></span> Apellido almacenado: <span id="apellidoMostrar"></span>
             <input type="button" name="botonCargar" value="Cargar elementos" onclick="cargarStorage()">
