@@ -18,46 +18,47 @@ Figura.prototype.metodoCompartido = function(frase) {
     alert("Metodo Compartido " + frase);
 }
 
-function HeredarFigura(funCalculaArea, nombre) {
-    var nombreFun = nombre;
-    var funcionConstructora = function(padreDom) {
-        Figura.call(this, padreDom, nombreFun);
+Figura.ANCHO_DEFECTO = 10; //parecido a variables estaticas y constantes
+Figura.Heredar = function(funCalculaArea, nombre) { //parecido a metodos estaticos
+        var nombreFun = nombre;
+        var funcionConstructora = function(padreDom) {
+            Figura.call(this, padreDom, nombreFun);
+        }
+
+        funcionConstructora.prototype = new Figura();
+        funcionConstructora.prototype.calculaArea = funCalculaArea;
+        return funcionConstructora;
+    }
+    /*
+    var Rectangulo = function(padreDom) {
+        Figura.call(this, padreDom);
+    }
+    Rectangulo.prototype = new Figura();
+
+    Rectangulo.prototype.calculaArea = function() {
+        this.resultado.value = parseInt(this.alto.value) *
+            parseInt(this.ancho.value);
     }
 
-    funcionConstructora.prototype = new Figura();
-    funcionConstructora.prototype.calculaArea = funCalculaArea;
-    return funcionConstructora;
-}
-/*
-var Rectangulo = function(padreDom) {
-    Figura.call(this, padreDom);
-}
-Rectangulo.prototype = new Figura();
+    var Triangulo = function(padreDom) {
+        Figura.call(this, padreDom);
+    }
+    Triangulo.prototype = new Figura();
 
-Rectangulo.prototype.calculaArea = function() {
-    this.resultado.value = parseInt(this.alto.value) *
-        parseInt(this.ancho.value);
-}
+    Triangulo.prototype.calculaArea = function() {
+        this.resultado.value = parseInt(this.alto.value) *
+            parseInt(this.ancho.value) / 2;
+    }
 
-var Triangulo = function(padreDom) {
-    Figura.call(this, padreDom);
-}
-Triangulo.prototype = new Figura();
+    var Elipse = function(padreDom) {
+        Figura.call(this, padreDom);
+    }
+    Elipse.prototype = new Figura();
 
-Triangulo.prototype.calculaArea = function() {
-    this.resultado.value = parseInt(this.alto.value) *
-        parseInt(this.ancho.value) / 2;
-}
-
-var Elipse = function(padreDom) {
-    Figura.call(this, padreDom);
-}
-Elipse.prototype = new Figura();
-
-Elipse.prototype.calculaArea = function() {
-    this.resultado.value = (parseInt(this.alto.value)/2 *
-        parseInt(this.ancho.value) / 2) * Math.PI;
-}*/
+    Elipse.prototype.calculaArea = function() {
+        this.resultado.value = (parseInt(this.alto.value)/2 *
+            parseInt(this.ancho.value) / 2) * Math.PI;
+    }*/
 
 
 
@@ -79,9 +80,9 @@ calculaAreaElipse = function() {
     this.metodoCompartido("OOOO");
 }
 
-var Rectangulo = HeredarFigura(calculaAreaRectangulo, "Rectangulo");
-var Triangulo = HeredarFigura(calculaAreaTriangulo, "Triangulo");
-var Elipse = HeredarFigura(calculaAreaElipse, "Elipse");
+var Rectangulo = Figura.Heredar(calculaAreaRectangulo, "Rectangulo");
+var Triangulo = Figura.Heredar(calculaAreaTriangulo, "Triangulo");
+var Elipse = Figura.Heredar(calculaAreaElipse, "Elipse");
 
 
 /*
