@@ -19,26 +19,35 @@ FactoriaFiguras.prototype.crearFigura = function(options) {
 
     switch (modeloReq) {
         case "rectangulo":
-            var tipoModelo = Modelo.Rectangulo;
+            var tipoModelo = ConVolumen(Modelo.Rectangulo);
             var nombreModelo = "Rectangulo";
             break;
         case "elipse":
-            var tipoModelo = Modelo.Elipse;
+            var tipoModelo = ConVolumen(Modelo.Elipse);
             var nombreModelo = "Elipse";
             break;
         case "triangulo equilatero":
-            var tipoModelo = Modelo.TrianguloEquilatero;
+            var tipoModelo = ConVolumen(Modelo.TrianguloEquilatero);
             var nombreModelo = "Triangulo";
             break;
         case "triangulo isosceles":
-            var tipoModelo = Modelo.TrianguloIsosceles;
+            var tipoModelo = ConVolumen(Modelo.TrianguloIsosceles);
             var nombreModelo = "Triangulo";
             break;
         case "huevo":
-            var tipoModelo = Modelo.Huevo;
+            var tipoModelo = ConVolumen(Modelo.Huevo);
             var nombreModelo = "Huevo";
             break;
     }
 
     return new FiguraControlador(new tipoVista(elementoDOMReq, nombreModelo), tipoModelo);
+}
+
+function ConVolumen(modeloFigura) {
+    modeloFigura.calcularDeVerdadVolumen = function(ancho, alto, profundidad) {
+        var volumenNuevo = modeloFigura.calcularDeVerdadArea(ancho, alto, true) * profundidad;
+        Modelo.notificarCambio(modeloFigura.escuchadores, modeloFigura.name, "volumen", modeloFigura.volumen, volumenNuevo);
+        modeloFigura.volumen = volumenNuevo;
+    }
+    return modeloFigura;
 }
