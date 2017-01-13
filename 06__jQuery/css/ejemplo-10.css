@@ -1,3 +1,15 @@
-#text1,#text2{
+#text1 {
     color: #00f;
+}
+
+#text2 {
+    color: #009;
+}
+
+#text3 {
+    color: #94a2da;
+}
+
+#text4 {
+    color: #52ebe7;
 }
