@@ -14,13 +14,10 @@ function initializeEvents() {
     });*/
 
     $("#parrafos p").on("contextmenu", function(event) {
-        if (event.which == 3) {
-            //cuando pulso con el boton derecho, menú contextual
-            //solo funciona con mousedown, no con click
-            var texto = $(this).text();
-            if (texto.length > 100) {
-                alert(texto);
-            }
+
+        var texto = $(this).text();
+        if (texto.length > 100) {
+            alert(texto);
         }
     });
 }
