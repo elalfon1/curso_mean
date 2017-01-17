@@ -1,0 +1,186 @@
+/* fondo al body*/
+body {
+	background-color: lightblue;
+}
+/* fondo y alineación al header*/
+header {
+	background-color: red;
+	text-align: center;
+}
+h1 {
+	background-color: #FFFF88;	
+}
+/* Mientras que sea mayor que 500px el navegador...*/
+@media (min-width: 500px),(orientation: landscape) {
+	nav {
+		background-color: lemonchiffon;
+		float: left;
+		width: 20%;
+		height: 260px;
+/* overflow: Que no sobresalga */
+		overflow: hidden;
+	}
+	aside {
+		background-color: aquamarine;
+		float: right;
+		width: 20%;
+		height:140px;
+		padding-left: 20px;
+		padding-top: 10px;
+	}
+}
+/* Mientras que sea mayor que 500px el navegador...*/
+@media (max-width: 500px), (orientation: portrait) {
+	nav {
+		background-color: lemonchiffon;
+		float: none;
+		width: 49%;
+		height: 260px;
+		overflow: hidden;
+	}
+	aside {
+		background-color: aquamarine;
+		float: none;
+		width: 49%;
+		height:140px;
+		padding-left: 20px;
+		padding-top: 10px;
+	}
+}
+/*  */
+/*  */
+section {
+	background-color: lavenderblush;
+	margin-left: 21%;
+	width: 54%;
+}
+/* Cualquiera de los tres: hijos o nietos header, article o footer de section */
+section header, section article, section footer {
+	background-color: aquamarine;
+	margin-right: 20px;
+}
+/* Con id pageFooter */
+#pageFooter {
+	background-color: coral;
+	margin-top: 20px;
+}
+#articleFooter {
+	margin-top: 15px;
+}
+/* todos los <li> con clase igual ultimo_li */
+li[class="ultimo_li"]{
+	margin-left: 10px;
+	background-color: white;	
+}
+/**
+
+[id]{
+	background-color: blue;	
+}*/
+/* cuando el input de ID input_1 tiene el foco */
+#input_1:focus {
+	background-color: yellow;	
+}
+/* Cualquier hijo de cualquier DIV, cuando se le pasa el ratón por encima */
+div > *:hover{
+	color: #00F4;	
+}
+/* cualquiera con clase primer_li*/
+.primer_li {
+	margin-left: 10px;
+	background-color: white;	
+}
+/* cualquier hermano posterior de cualquiera con clase primer_li*/
+.primer_li ~ li {
+	margin-left: 20px;
+	background-color: red;
+}
+/* * {
+	border-radius: 10px 10px 10px 10px;
+}*/
+.letra-pequena {
+	font-size: 8px;
+}
+.letra-grande {
+	font-size: 30px;
+}
+.borde {
+	/* border-style: solid;
+	border-color: black; */
+	border: solid 3px black;
+	border-radius: 10px 10px 10px 10px;	
+}
+.borde-grande {
+	border-radius: 20px 20px 20px 20px;	
+}
+.borde-pequeno {
+	border-radius: 5px 5px 5px 5px;
+}
+.borde-rojo {
+	border-color: red;
+}
+.borde-azul {
+	border-color: blue;
+}
+*[class~="borde-pequeno"] {
+	padding: 20px;
+}
+/* Cambiando la imagen de ul */
+ul {
+    list-style-image: url('images.png');
+}
+/* añadir contenido a todos los <li> */
+li::after {
+	content: "(*)";
+}
+/* Los hijos impares de los hijos de un div */
+div > *:nth-child(odd) {
+	color: #F0404080;
+	color: #F448;
+}
+/* Sombreando cajas y fuentes */
+article {
+	box-shadow: 20px 6px 5px #0F0;
+	text-shadow: 2px 2px 3px #000;
+}
+p::first-letter {
+	font-size: 40px;
+	text-transform: uppercase;
+}
+article p {
+	border: solid 3px black;
+}
+article p:nth-child(1) {
+	display: block;
+}
+article p:nth-child(2) {
+	display: inline;
+}
+article p:nth-child(3),article p:nth-child(4),article p:nth-child(5) {
+	display: inline-block;
+	width: 120px;
+}
+/*Separando en columnas*/ 
+/* article {
+	column-count: 3;
+	column-width: 50px;
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-rule: 2px;
+	column-gap: 10px;
+	-moz-column-rule: 2px;
+	-moz-column-gap: 10px;
+	-moz-column-width: 50px;
+	/* */
+	/* column-width: define el ancho de cada columna, por defecto es auto. 
+}*/
+/*li::after {
+	
+	content: url(images.png);
+}/*/
+/* *[class*="pequen"] {
+	padding: 5px;
+}*/
+
+
+
