@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tercer ejemplo de AngularJS: Filtros</title>
+</head>
+
+<body ng-init="misClientes = [
+                                {nombre:'Fran', ciudad:'Vietnam/Cadiz'},
+                                {nombre:'Sergio', ciudad:'Madrid'},
+                                {nombre:'Fernando', ciudad:'Vitoria'},
+                                {nombre:'Angel', ciudad: 'Madrid'},
+                                {nombre:'Julio', ciudad:'Madrid'},
+                                {nombre:'Pedro', ciudad:'Madrid'}
+                            ];
+                siEsPar = true;">
+    <!-- Campo de texto para introducir nombre del cliente -->
+
+    <br/> Por cualquiera:
+    <input type="text" ng-model="miFiltro.$" />
+    <br/> Por nombre:
+    <input type="text" ng-model="miFiltro.nombre" />
+    <br/> Por ciudad:
+    <input type="text" ng-model="miFiltro.ciudad" />
+    <br/> Si es par:
+    <input type="checkbox" ng-model="siEsPar" />
+
+    <div class="container">
+
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li ng-repeat="cliente in misClientes | filter:miFiltro | orderBy: 'nombre'" ng-show="siEsPar == $odd">
+                <!-- $odd es impares o $even pares-->
+                Cliente num.:{{$index + 1}} es {{cliente.nombre}} de {{cliente.ciudad}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</body>
+
+</html>

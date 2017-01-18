@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html ng-app="miAplicacion">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quinto ejemplo de AngularJS: Separando el controlador</title>
+</head>
+
+<body>
+    Escribe el nombre del cliente aquí:
+    <br/>
+
+
+    <div ng-controller="ControladorMuySimple">
+        <input type="text" ng-model="nombreCliente" />
+        <input type="text" ng-model="ciudadCliente" />
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li ng-repeat="cliente in misClientes">
+                {{cliente.nombre | uppercase}} - {{cliente.ciudad | lowercase}}
+            </li>
+        </ul>
+
+        <input type="button" value="Add Cliente" ng-click="addCliente()">
+
+    </div>
+
+    <div ng-controller="ControladorMuySimple">
+        <h3>Listado de clientes segunda parte</h3>
+        <ul>
+            <li ng-repeat="cliente in misClientes">
+                {{cliente.nombre}}
+            </li>
+        </ul>
+
+    </div>
+
+
+    <br/> Escribe el nombre del animal aquí:
+    <br/>
+
+    <div ng-controller="ControladorAnimales">
+        <input type="text" ng-model="nombreAnimal" />
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li ng-repeat="animal in misAnimales | filter:nombreAnimal">
+                {{animal.nombre | uppercase}} - {{animal.familia | lowercase}}
+            </li>
+        </ul>
+
+        {{scopeGlobal}}
+
+    </div>
+
+    <br/> Escribe el nombre de la planta aquí:
+    <br/>
+
+    <!-- 
+        asi en vez de usar $scope usamos this
+        lo unico que las variables y funciones se recogen con vm. 
+    -->
+    <div ng-controller="ControladorPlantas as vm">
+        <input type="text" ng-model="vm.nombrePlanta" />
+        <h3>Listado de clientes</h3>
+        <ul>
+            <li ng-repeat="planta in vm.misPlantas | filter:vm.nombrePlanta">
+                {{planta.nombre | uppercase}} - {{planta.color | lowercase}}
+            </li>
+        </ul>
+        <input type="button" value="Mostrar Planta" ng-click="vm.mostrarPlanta()">
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="05_miaplicacion.js"></script>
+</body>
+
+</html>

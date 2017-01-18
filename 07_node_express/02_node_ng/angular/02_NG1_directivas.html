@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <title>Segundo ejemplo de AngularJS: ng-init y ng-repeat</title>
+</head>
+
+<body>
+
+    <div ng-init="variosNombres = ['Alfonso','Julio','Manuel','Luis'];
+                listaAnimales = ['Perro','Gato','Caballo','Vaca']">
+
+        <!-- Cambia el modelo cuando se pulsa -->
+        <input type="button" value="Cambiar modelo" ng-click="variosNombres=['Solo uno']">
+
+        <!-- Cambia el modelo cuando se cambia el input -->
+        <input type="text" ng-model="esteInput" ng-change="variosNombres=[esteInput, 'Elemento 2']">
+        <h3>Bucle con ng-repeat</h3>
+        <ul>
+            <!-- Recorre el array del modelo -->
+            <li ng-repeat="nombre in variosNombres">
+                {{nombre + " no viene al bar."}}
+            </li>
+        </ul>
+        <h3>Lista de animales</h3>
+        <ul>
+            <li ng-repeat="animal in listaAnimales" ng-bind="animal + ' es el  animal '+ $index">
+
+            </li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</body>
+
+</html>

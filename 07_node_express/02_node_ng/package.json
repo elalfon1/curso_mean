@@ -1,0 +1,8 @@
+{
+    "name": "servidor_angular_01",
+    "version": "1.0.0",
+    "description": "Servidor para angular",
+    "dependencies": {
+        "express": "3.x"
+    }
+}
