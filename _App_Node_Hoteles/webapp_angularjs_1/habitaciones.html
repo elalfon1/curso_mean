@@ -1,0 +1,88 @@
+<html data-ng-app="appNodeHotel">
+
+<head>
+    <meta charset="utf-8">
+    <title>HabitacionesController ejemplo de AngularJS</title>
+    <!--<link rel="stylesheet" href="scripts/bootstrap-3.3.6-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+
+<body>
+    <!-- Añadimos controlador en el div -->
+    <div data-ng-controller="HabitacionesController as HsC">
+        <h2>Habitaciones</h2>
+        <h3>Cantidad: {{ HsC.cantidad() }}</h3>
+        <!-- Campo de texto para introducir datos de la habitación -->
+        <!-- Añadimos controlador en el div -->
+        <div data-ng-controller="HabitacionController as HC">
+            <!-- Campo de texto para introducir datos de la habitación -->
+            Numero: <input type="number" data-ng-model="HC.numero" value="1" /></br>
+            ¿Doble?: <input type="checkbox" data-ng-model="HC.doble" value="false" />
+            <input type="button" value="+" ng-click="HC.addHabitacion()" />
+        </div>
+
+        <ul>
+            <li data-ng-repeat="habitacion in HsC.lista">
+                Nº {{ habitacion.numero}}: {{ habitacion.doble ? "Doble" : "Simple"}}
+                <input type="button" value="X" ng-click="HsC.delHabitacion(habitacion.numero)" />
+            </li>
+        </ul>
+    </div>
+
+    <div id="calendario_cliente" class="mi_calendario" ng-controller="CalendarioController as CC">
+        <h1>
+            <a class="enlace" ng-class="{'no-disponible':!CC.meses.validoPrevio()}" ng-click="CC.meses.prevMes()">&larr;</a> {{CC.meses.getNombreMes()}}
+            <a class="enlace" ng-class="{'no-disponible':!CC.meses.validoSiguiente()}" ng-click="CC.meses.nextMes()">&rarr;</a>
+        </h1>
+
+
+        <ol class="calendar">
+
+            <!--<li id="lastmonth">
+                <ul start="29">
+                    <li>29</li>
+                    <li>30</li>
+                </ul>
+            </li>-->
+
+            <li id="thismonth">
+
+                <ul>
+                    <li ng-repeat="i in CC.getNumber(CC.meses.diasMesActual) track by $index" data-ng-controller="ControladorDisponibilidadDia as DisDia">
+                        <!--<span class="cada-dia">{{$index+1}}</span> data-ng-model="DisDia.fecha" data-ng-change="DisDia.actualizarDisponibilidad()"
+                        <br/> {{ DisDia.fecha | date: 'dd-MM-yyyy' }}
+                        <br/> simple: {{ DisDia.simpleDia() }}
+                        <br/> doble: {{ DisDia.dobleDia() }}
+                    
+
+                        <ul>
+                            <li><a class="enlace" ng-click="DDC.prueba('2017'+'-'+(CC.meses.mesActual+1)+'-'+($index+1))">Texto</a></li>
+                        </ul>-->
+                        <span class="cada-dia">{{$index+1}}</span><br/><br/>
+                        <ul>
+                            <li><a class="enlace">simple: {{ DisDia.simpleDia(2017, CC.meses.mesActual, ($index+1)) }}</a></li>
+                            <li><a class="enlace">doble: {{ DisDia.dobleDia(2017, CC.meses.mesActual, ($index+1)) }}</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            <!--<li id="nextmonth">
+
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+            </li>-->
+
+        </ol>
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="js/modelo.js"></script>
+<script src="js/habitaciones.js"></script>
+<script src="js/calendario.js"></script>
+
+</html>

@@ -1,0 +1,121 @@
+/*
+ * CSS Calendar
+ * Tim Wright
+ * Chris Coyier
+ -----------------------------*/
+
+
+/*.calendar                {
+					 background: url(images/bg.jpg) top center no-repeat #545454;}*/
+
+
+/*body *              {display:inline;}*/
+
+.enlace {
+    cursor: pointer;
+}
+
+.no-disponible {
+    opacity: 0.3;
+}
+
+.cada-dia {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+ol.calendar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lightgrey;
+    width: 700px;
+    margin: 0 auto;
+    display: block;
+    min-height: 501px;
+    /*padding: 12px 0 0 20px;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+.calendar ul,
+.calendar ol {
+    padding: 0;
+}
+
+.calendar li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p.link {
+    text-align: center;
+    display: block;
+}
+
+.mi_calendario h1 {
+    display: block;
+    width: 300px;
+    /*height:76px;*/
+    /*background:url(images/july.png);text-indent:-9999px;*/
+    /*margin: 15px auto;*/
+}
+
+
+/*
+ * Day styles
+ -------------------------*/
+
+.calendar li li {
+    width: 88px;
+    height: 88px;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+    overflow: auto;
+    /*background: url(images/day-bg.png) bottom right no-repeat;*/
+    border-radius: 0px 0px 10px;
+    background-color: #faeeb6;
+}
+
+
+/*
+ * Day content (UL/OL & P)
+ -------------------------*/
+
+.calendar li li p {
+    font-size: .7em;
+    display: block;
+}
+
+.calendar li li ol {
+    width: auto;
+}
+
+.calendar li li ul li,
+.calendar li li ol li {
+    font-size: .7em;
+    display: block;
+    height: auto;
+    width: auto;
+    background: none;
+    margin: 0;
+    padding: .2em 0;
+    float: none;
+}
+
+
+/*
+ * Holiday class
+ -------------------------*/
+
+li li.holiday {}
+
+
+/*
+ * Inactive months
+ -------------------------*/
+
+.calendar li#lastmonth li,
+.calendar li#nextmonth li {
+    background-color: grey;
+}

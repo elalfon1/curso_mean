@@ -1,0 +1,86 @@
+section {
+    width: 100%;
+    height: 100%;
+}
+
+#header-top {
+    height: 80px;
+    width: 100%;
+}
+
+#reservar,
+#login {
+    float: left;
+    width: 30%;
+}
+
+.row-form {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.row-form>label {
+    display: block;
+}
+
+.row-form>label {
+    display: block;
+}
+
+.calendario {
+    float: right;
+    width: 70%;
+    height: 100%;
+}
+
+.calendario .calendario-dia-semana,
+.calendario .calendario-dia {
+    width: 13.5%;
+    /*display: inline-block;*/
+    float: left;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.calendario .calendario-dia-semana {
+    height: 30px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.calendario .calendario-dia {
+    height: 60px;
+}
+
+.calendario .calendario-dia span {
+    padding-left: 2px;
+    font-size: 12pt;
+    color: grey;
+}
+
+.calendario .calendario-dia .calendario-tipohab {
+    font-size: 10pt;
+    text-align: center;
+}
+
+.calendario .calendario-dia .calendario-tipohab label {
+    font-weight: bold;
+}
+
+.calendario .ultimo_campo {
+    border-right: 1px solid black;
+}
+
+.calendario .ultima_fila {
+    border-bottom: 1px solid black;
+}
+
+.limpiador {
+    clear: both;
+}
+
+.separador {
+    margin: 40px auto;
+    border-top: 1px solid grey;
+    width: 80%;
+}
