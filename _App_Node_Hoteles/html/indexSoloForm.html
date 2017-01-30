@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Node Hoteles</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">-->
+
+    <!-- Mis estilos -->
+    <link href="css/mis-estilos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="barra-admin">
+            <div class="col-xs-12 text-right">
+                <h4 class="glyphicon glyphicon-lock"></h4>
+            </div>
+        </div>
+        <div class="row" id="header">
+            <img src="images/logo.jpg" class="img-responsive center-block" />
+        </div>
+        <div class="row mt-50">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Reserva tu habitación con nosotros</div>
+                    <div class="panel-body">
+
+
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label" for="hotel">¿Cuál de nuestros hoteles?</label>
+                                <div class="col-sm-12">
+                                    <select id="hotel" class="form-control" placeholder="dd/mm/yyyy">
+                                <option value="0">Seleccione su hotel...</option>
+                            </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label" for="fecha_inicio">Fecha entrada</label>
+                                <label class="col-sm-6 control-label hidden-xs " for="fecha_fin">Fecha salida</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date">
+                                        <input class="form-control" id="fecha_inicio" type="text" placeholder="dd/mm/yyyy" />
+                                        <span class="input-group-addon">
+						            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <label class="col-sm-6 control-label hidden-sm hidden-md hidden-lg mt-15" for="fecha_fin">Fecha salida</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date">
+                                        <input class="form-control" id="fecha_fin" type="text" placeholder="dd/mm/yyyy" />
+                                        <span class="input-group-addon">
+						            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label" for="nombre">Nombre y Apellidos</label>
+                                <div class="col-sm-12">
+                                    <input id="nombre" class="form-control" type="text" placeholder="Nombre Apellido2 Apellido2" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label" for="email">Correo electrónico</label>
+                                <div class="col-sm-12">
+                                    <input id="email" class="form-control" type="email" placeholder="correo@dominio.com" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label" for="hotel">Tipo de habitación:</label>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-6 mb-xs-15">
+                                    <select id="hotel" class="form-control" placeholder="dd/mm/yyyy">
+                                <option value="1">Simple</option>
+                                <option value="2">Doble</option>
+                            </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-success btn-block">
+                                <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+                                &nbsp;Reservar
+                            </button>
+                                </div>
+
+
+                        </form>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--<div class="form-group form-group-sm">
+                        <label class="col-sm-5 control-label" for="fecha_inicio">Hotel:</label>
+                        <div class="col-sm-6">
+                            <select id="hotel" class="form-control" placeholder="dd/mm/yyyy">
+                                <option value="0">Seleccione su hotel...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-5 control-label" for="fecha_inicio">Fecha inicio:</label>
+                        <div class="col-sm-6">
+                            <input id="fecha_inicio" class="form-control" type="text" placeholder="dd/mm/yyyy" />
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-5 control-label" for="fecha_inicio">Fecha fin:</label>
+                        <div class="col-sm-6">
+                            <input id="fecha_inicio" class="form-control" type="text" placeholder="dd/mm/yyyy" />
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-5 control-label" for="nombre">Nombre y apellidos:</label>
+                        <div class="col-sm-6">
+                            <input id="nombre" class="form-control" type="text" placeholder="Nombre Apellido2 Apellido2" />
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-sm">
+                        <label class="col-sm-5 control-label" for="fecha_inicio">Email:</label>
+                        <div class="col-sm-6">
+                            <input id="fecha_inicio" class="form-control" type="email" placeholder="correo@dominio.com" />
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+</body>
+
+
+</html>
