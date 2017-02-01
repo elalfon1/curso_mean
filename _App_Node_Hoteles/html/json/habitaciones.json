@@ -1,0 +1,13 @@
+[{
+        "num_habitacion": "301",
+        "simple": true
+    },
+    {
+        "num_habitacion": "302",
+        "simple": false
+    },
+    {
+        "num_habitacion": "303",
+        "simple": true
+    }
+]

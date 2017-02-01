@@ -1,3 +1,5 @@
+"use strict"
+
 let fs = require("fs");
 let fichero = process.argv[2];
 let contenido = fs.readFileSync(fichero);
