@@ -1,3 +1,7 @@
 solo_local/
 node_modules
-MongoDB
+
+/MongoDB/mongomart-student
+/MongoDB/usb_drive
+/MongoDB/mongomart-student.zip
+/MongoDB/usb_drive.zip

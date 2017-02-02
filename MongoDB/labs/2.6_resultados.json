@@ -1,0 +1,69 @@
+//1. In the sample.inspections namespace, let’s imagine that we want to do a little data cleaning. We’ve decided to eliminate the “Completed” inspection result and use only “No Violation Issued” for such inspection cases. Please update all inspections accordingly.
+db.inspections.updateMany({
+    "result": "Completed"
+}, {
+    "$set": { "result": "No Violation Issued" }
+})
+
+
+
+//2. For all inspections that failed, set a fine value of 100.
+
+db.inspections.updateMany({
+    "result": "Fail"
+}, {
+    "$set": { "fine": 100 }
+})
+
+
+
+//3. • Update all inspections done in the city of “ROSEDALE”.
+//   • For failed inspections, raise the “fine” value by 150.
+
+db.inspections.updateMany({
+    "address.city": "ROSEDALE",
+    "result": "Fail",
+}, {
+    "$inc": { "fine": 150 }
+})
+
+
+
+//4. • TodayMongoDBgot a visit fromthe inspectors.
+//  • We passed, of course.
+//  • So go ahead and update “MongoDB” and set the result to “AWESOME”
+//  • MongoDB’s address is
+//  {city: 'New York', zip: 10036, street: '43', number: 229}
+
+db.inspections.updateOne({
+    "city": "New York",
+    "zip": 10036,
+    "street": "43",
+    "number": 229
+}, {
+    "$set": { "result": "AWESOME" }
+})
+
+
+
+
+//5. Insert a document representing product metrics for a backpack:
+// db.product_metrics.insertOne(
+// { name: "backpack",
+// purchasesPast7Days: [ 0, 0, 0, 0, 0, 0, 0] })
+// Each 0 within the “purchasesPast7Days” field corresponds to a day of the week. The first element is Monday, the
+// second element is Tuesday, etc.).
+// Write an update statement to increment the number of backpacks sold on Friday by 200.
+
+db.product_metrics.updateOne({
+    "_id": ObjectId("58938aaf5840202bec0e5f0b")
+}, {
+    "$inc": { "purchasesPast7Days.4": 200 }
+})
+
+
+db.product_metrics.updateOne({
+    "_id": ObjectId("58938aaf5840202bec0e5f0b")
+}, {
+    "$push": { "miArray": 200 }
+})

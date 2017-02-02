@@ -1,0 +1,63 @@
+//1. In the sample database, how many documents in the grades collection have a student_id less than 65 ?
+db.grades.find({
+    "student_id": { $lte: 65 }
+}).count()
+
+db.grades.count({
+    "student_id": { $lte: 65 }
+})
+
+
+
+//2. In the sample database, how many documents in the inspections collection have result“ Pass” or“ Fail” ?
+db.inspections.find({
+    "result": { $in: ["Pass", "Fail"] }
+}).count()
+
+
+
+//3. In the stories collection, write a query to find all stories where the view count is greater than 1000.
+db.stories.find({
+    "shorturl.view_count": { $gt: 1000 }
+}).count()
+
+db.stories.find({
+    "shorturl": {
+        $elemMatch: { "view_count": { $gt: 1000 } }
+    }
+}).count()
+
+
+
+//4. Find the news article that has the most comments in the stories collection -
+db.stories.find({ "media": "news" }).sort("comments": -1).limit(1)
+
+
+
+//5. Find all digg stories where the topic name is“ Television” or the media type is“ videos”.Skip the first 5 results and limit the result set to 10.
+db.stories.find({
+    $or: [
+        { "topic.name": "Television" },
+        { "media": "videos" }
+    ]
+}).skip(5).limit(10)
+
+
+
+//6. Query for all digg stories whose media type is either“ news” or“ images” and where the topic name is“ Comedy”.(For extra practice, construct two queries using different sets of operators to do this.)
+db.stories.find({
+    "media": {
+        $in: ["news", "image"]
+    },
+    "topic.name": "Comedy"
+})
+
+db.stories.find({
+    $and: [{
+            "media": {
+                $in: ["news", "image"]
+            }
+        },
+        { "topic.name": "Comedy" }
+    ]
+})
