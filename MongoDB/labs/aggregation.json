@@ -1,0 +1,22 @@
+//$nombre_campo para recoger el valor, sino seria una constante
+db.messages.aggregate([{
+        $match: { timestamp: { $gte: 2, $lte: 4 } }
+    },
+    {
+        $project: {
+            "_id": 0,
+            "usr": "$username",
+            "ts": "$timestamp",
+            "rate": { $divide: ["$rating", 10] }
+        }
+    },
+    {
+        $sort: {
+            "rate": 1
+        }
+    },
+    {
+        $limit: 1
+    }
+
+])
