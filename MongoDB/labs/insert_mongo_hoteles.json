@@ -1,0 +1,158 @@
+db.room.insertMany(
+    [{
+        "_id": num_habitacion,
+        "hotel_id": nombre_hotel,
+        "type": "simple" / "doble"
+    }]
+)
+
+db.customer.insertMany([{
+    _id: NIF / NIE,
+    first: "",
+    last: "",
+    email: "",
+    phone1: "",
+    phone2: "",
+    birthdate: ""
+}])
+
+
+db.service.insertMany([{
+    _id: nombre_servicio,
+    description: "",
+    rate: {
+        high: price,
+        low: price
+    }
+}])
+
+db.hotel.insert({
+    id: nombre_hotel,
+    address: {
+        city: "",
+        street: "",
+        zip: codigo_postal
+    },
+    gps_location: "",
+    picture_path: ""
+})
+
+
+db.hotel.insert({
+    _id: "Node hotel",
+    address: {
+        city: "Madrid",
+        street: "C/ Gran Vía 7",
+        zip: "28013"
+    },
+    gps_location: "40.4201504,-3.7048235",
+    picture_path: "img/node_hotel.jpg"
+})
+
+//random 0...10
+//first nombre
+db.booking.insert({
+    _id: YYYYMMDD_customerid_random
+    hotel_id: "",
+    hotel_address: {
+        city: "Madrid",
+        street: "C/ Gran Vía 7",
+        zip: "28013"
+    },
+    customer_id: "",
+    first: "",
+    last: "",
+    checkin_date: "",
+    checkout_date: "",
+    season: "alta" / "baja",
+    occupancy: [{
+        room_id: "",
+        type: "",
+        date: YYYYMMDD,
+        price: ""
+    }],
+    services: [{
+        service_id: "",
+        date: YYYYMMDD,
+        desc: "",
+        price: "",
+        quantity: ""
+    }],
+    booking_cost: "",
+    services_cost: ""
+})
+
+
+
+
+
+
+
+
+
+
+
+db.hotel.insertMany([{
+    _id: "Node Hotel",
+    address: {
+        city: "Madrid",
+        street: "C/ Gran Vía 7",
+        zip: "28013"
+    },
+    gps_location: "40.4201504,-3.7048235",
+    picture_path: "img/node_hotel.jpg"
+}, {
+    _id: "Node Hotel Castellana",
+    address: {
+        city: "Madrid",
+        street: "Paseo de la Castellana 50",
+        zip: "28046"
+    },
+    gps_location: "40.4271661,-3.6929139",
+    picture_path: "img/node_hotel_castellana.jpg"
+}, {
+    _id: "Node Hotel M30",
+    address: {
+        city: "Madrid",
+        street: "C/ Méndez Álvaro 10",
+        zip: "28045"
+    },
+    gps_location: "40.3916092,-3.6812397",
+    picture_path: "img/node_hotel_m30.jpg"
+}])
+
+
+
+db.service.insertMany([{
+        _id: "Media Pension",
+        description: "Desayuno + Comida",
+        rate: {
+            high: 25,
+            low: 15
+        }
+    },
+    {
+        _id: "Pension Completa",
+        description: "Desayuno + Comida + Cena",
+        rate: {
+            high: 45,
+            low: 25
+        }
+    },
+    {
+        _id: "Lavanderia",
+        description: "Servicio de lavandería para habitaciones",
+        rate: {
+            high: 15,
+            low: 7
+        }
+    },
+    {
+        _id: "Late Checkout",
+        description: "Salida tardía (14:00)",
+        rate: {
+            high: 12,
+            low: 8
+        }
+    }
+])
