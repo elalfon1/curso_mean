@@ -5,3 +5,8 @@ node_modules
 /MongoDB/usb_drive
 /MongoDB/mongomart-student.zip
 /MongoDB/usb_drive.zip
+/07_node_express/03_node_ejemplos/fichero.txt
+/07_node_express/03_node_ejemplos/fichero.wt
+/07_node_express/03_node_ejemplos/fichero2.wt
+/07_node_express/03_node_ejemplos/*.gz
+/07_node_express/03_node_ejemplos/*.txt

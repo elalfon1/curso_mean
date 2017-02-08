@@ -14,23 +14,34 @@ let memKB = {
     external: parseInt(mem.external / 1024)
 };
 
-console.log(memKB);
+function primeraFuncion() {
+    console.log(memKB);
 
-//process.exit(1);//salir del programa
+    //process.exit(1);//salir del programa
 
-//cambiar de directorio (con / de linux)
-process.chdir("C:/");
+    //cambiar de directorio (con / de linux)
+    process.chdir("C:/");
+}
 
-//Directorio de trabajo
-console.log("Directorio: " + process.cwd());
 
-//Informacion del entorno de usuario
-console.log(process.env);
+function segundaFuncion() {
+    //Directorio de trabajo
+    console.log("Directorio: " + process.cwd());
 
-// Tiempo de uso de la CPU
-const startUsage = process.cpuUsage();
+    //Informacion del entorno de usuario
+    console.log(process.env);
+}
 
-const now = Date.now();
-while (Date.now() - now < 5000);
-// Tiempo pasado en micro segundos
-console.log(process.cpuUsage(startUsage));
+function terceraFuncion() {
+    primeraFuncion();
+    segundaFuncion();
+    // Tiempo de uso de la CPU
+    const startUsage = process.cpuUsage();
+
+    const now = Date.now();
+    while (Date.now() - now < 5000);
+    // Tiempo pasado en micro segundos
+    console.log(process.cpuUsage(startUsage));
+}
+
+terceraFuncion();
