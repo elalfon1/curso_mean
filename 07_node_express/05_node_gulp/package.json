@@ -1,0 +1,15 @@
+{
+    "name": "05_node_gulp",
+    "version": "1.0.0",
+    "description": "Primeros pasos con gulp",
+    "main": "gulpfile.js",
+    "author": "Alfonso Cuadrado",
+    "license": "MIT",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-uglify": "^2.0.1",
+        "gulp-watch": "^4.3.11",
+        "gulp-javascript-obfuscator": "^1.1.2"
+    }
+}

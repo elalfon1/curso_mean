@@ -1,0 +1,1 @@
+{"version":3,"sources":["sourceMap"],"names":["sumar","_0x2e5783","_0x3f78ef","console"],"mappings":"gvBAAA,SAASA,KAAT,CAAeC,SAAf,CAAoBC,SAApB,CAAyB,C,4rCACxB,OAAOD,SAAA,CAAKC,SAAZ,CADwB,CAIzBC,OAAA,C,cAAA,EAAYH,KAAA,CAAM,GAAN,CAAQ,GAAR,CAAZ","sourcesContent":["function sumar(num1,num2){\r\n\treturn num1+num2;\r\n}\r\n\r\nconsole.log(sumar(1,2));"]}

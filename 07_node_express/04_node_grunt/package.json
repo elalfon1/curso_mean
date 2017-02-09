@@ -1,0 +1,12 @@
+{
+  "name": "03-grunt-prueba",
+  "description": "Prueba de Grunt.js",
+  "version": "1.0.0",
+  "author": "Alfonso Cuadrado",
+  "license": "GPL",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
