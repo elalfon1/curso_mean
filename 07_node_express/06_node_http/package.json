@@ -1,0 +1,17 @@
+{
+  "name": "06_node_http",
+  "version": "1.0.0",
+  "description": "Node http",
+  "main": "01-http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Alfonso Cuadrado",
+  "license": "ISC",
+  "devDependencies": {
+    "bl": "^1.2.0"
+  }
+}
