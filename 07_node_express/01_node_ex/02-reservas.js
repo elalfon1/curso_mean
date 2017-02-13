@@ -1,3 +1,8 @@
+var miExpress = require("express");
+
+//Instanciar
+var app = miExpress();
+
 //  Modulo  //
 var reservas = {
     getAll: function() {
@@ -25,3 +30,9 @@ var aResponder = (request, response) => {
 
 
 app.all("/reservas", aResponder);
+
+
+
+app.listen(9000);
+
+console.log("Servidor express lanzado");
