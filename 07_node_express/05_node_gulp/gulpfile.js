@@ -1,14 +1,25 @@
-var gulp = require('gulp'),
-    javascriptObfuscator = require('gulp-javascript-obfuscator');
+//Con ES6
+var [gulp, concat, uglify, watch] = [
+    require("gulp"), require("gulp-concat"), require("gulp-uglify"), require("gulp-uglify")
+];
 
-gulp.task("ofuscar", tareasEnOfuscar);
-gulp.task("default", ["ofuscar"]);
+//Para crear nuestra tarea
+gulp.task("comprime", tareasEnComprimir);
+gulp.task("watch", tareasEnWatch);
 
-function tareasEnOfuscar() {
-    gulp.src('file.js')
-        .pipe(javascriptObfuscator({
-            compact: true,
-            sourceMap: true
-        }))
-        .pipe(gulp.dest('dist'));
+function tareasEnWatch() {
+
+    gulp.watch("js/source/*.js", tareasEnComprimir);
+
+}
+
+function tareasEnComprimir(fichero) {
+    var glob = gulp.src("js/source/*.js");
+
+    glob.pipe(concat("funciones.min.js"))
+        .pipe(uglify())
+        .pipe(gulp.dest("js/build/"));
+
+    if (typeof fichero != "function")
+        console.log("Ejecuto porque se modificó: " + fichero.path);
 }
