@@ -38,21 +38,21 @@ function borrarRoom(_id, callback) {
 };
 
 function leerRoomPorId(_id, callback) {
-    Room.findById(_id, (error, habitacion) => {
+    Room.findById(_id, { "__v": 0 }, (error, habitacion) => {
         if (typeof callback != "undefined")
             callback(error, habitacion);
     });
 };
 
 function leerRoomsPorTipo(isDouble, callback) {
-    Room.find({ "isDouble": isDouble }, (error, habitaciones) => {
+    Room.find({ "isDouble": isDouble }, { "__v": 0 }, (error, habitaciones) => {
         if (typeof callback != "undefined")
             callback(error, habitaciones);
     });
 };
 
 function leerAllRoom(callback) {
-    Room.find({}, (error, habitacion) => {
+    Room.find({}, { "__v": 0 }, (error, habitacion) => {
         if (typeof callback != "undefined")
             callback(error, habitacion);
     });

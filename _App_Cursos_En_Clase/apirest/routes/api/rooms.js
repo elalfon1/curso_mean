@@ -25,25 +25,56 @@ router.get("/dobles", function(req, res, next) {
     });
 });
 
+
 router.get("/:id?", function(req, res, next) {
     let id = req.params.id;
 
-    if (id != null) {
-        modelRooms.leerRoomPorId(id, (error, habitacion) => {
-            if (error)
-                console.error(error);
-            else
-                res.send(habitacion);
-        });
-    } else {
+
+    if (id == null) {
         modelRooms.leerAllRoom((error, habitaciones) => {
             if (error)
                 console.error(error);
             else
                 res.send(habitaciones);
         });
+
+    } else {
+        id = parseInt(id);
+        if (Number.isInteger(id))
+            modelRooms.leerRoomPorId(id, (error, habitacion) => {
+                if (error)
+                    console.error(error);
+                else
+                    res.send(habitacion);
+            });
+        else {
+            res.sendStatus(404);
+        }
+    }
+    /*else {
+           console.log("No existe");
+           res.sendStatus(404);
+       }*/
+
+});
+
+
+router.delete("/:id", function(req, res, next) {
+    let id = parseInt(req.params.id);
+
+    if (id != null && Number.isInteger(id)) {
+        modelRooms.borrarRoom(id, (error, habitacion) => {
+            if (error)
+                console.error(error);
+            else
+                res.send("Borrada la habitacion número " + id);
+            //res.send(habitacion);
+        });
+    } else {
+        res.sendStatus(404);
     }
 });
+
 
 
 

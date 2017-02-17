@@ -32,14 +32,16 @@ describe("Pruebas CRUD", function() {
         });
     */
 
+    before((done) => {
+        modelRooms.grabarRoom(101, true);
+        modelRooms.grabarRoom(102, false);
+        done();
+    });
+
     describe("Pruebas Read", function() {
 
 
-        before((done) => {
-            modelRooms.grabarRoom(101, true);
-            modelRooms.grabarRoom(102, false);
-            done();
-        });
+
 
 
 
