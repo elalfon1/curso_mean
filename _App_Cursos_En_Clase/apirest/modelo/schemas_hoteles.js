@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+mongoose.connect("localhost:27017/db_hoteles");
 
 var Schema = mongoose.Schema;
 

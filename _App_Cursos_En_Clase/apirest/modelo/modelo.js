@@ -63,12 +63,12 @@ var modelo = {
     }
 }
 
-
+/*
 modelo.acceder("insertarBase", (resultado) => {
     console.log("Datos insertados");
 }, [
     { cliente: "Pepito", habitacion: 1 },
     { cliente: "Otrocliente", habitacion: 1 },
     { cliente: "Manuel", habitacion: 1 }
-]);
+]);*/
 module.exports = modelo;

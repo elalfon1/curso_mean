@@ -8,6 +8,7 @@ router.get("/", function(req, res, next) {
     });
 });
 
+/*
 router.get("/:nombreCliente", function(req, res, next) {
     let nombreCliente = req.params.nombreCliente;
     modelo.acceder("leerReservasByNombreCliente", (reservasLeidas) => {
@@ -31,6 +32,6 @@ router.get("/fecha/:anio?/:mes?/:dia?", function(req, res, next) {
 
 
 });
-
+*/
 
 module.exports = router;
