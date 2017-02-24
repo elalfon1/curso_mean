@@ -1,0 +1,9 @@
+<h1>
+    <input type="button" (click)="hacerClick()" value="Pulsa!">
+    <input type="button" (click)="mensajes=[]" value="Limpiar">
+    <input [(ngModel)]="title"> {{title}}
+    <br/>
+    <ul>
+        <li *ngFor="let mensaje of mensajes">{{mensaje}}</li>
+    </ul>
+</h1>

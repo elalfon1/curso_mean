@@ -1,0 +1,57 @@
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .mb-xs-15 {
+        margin-bottom: 15px;
+    }
+}
+
+
+/*
+input[type=radio].with-font {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 10px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 10px;
+}
+
+input[type=radio].with-font+label:before {
+    font-family: 'Glyphicons Halflings';
+    display: inline-block;
+    content: "\e109";
+    letter-spacing: 10px;
+    font-size: 1.2em;
+    color: #535353;
+}
+
+input[type=radio].with-font:checked+label:before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e109";
+    font-size: 1.2em;
+    color: darkgreen;
+    letter-spacing: 5px;
+    width: 35px 5px;
+}
+
+input[type=radio].with-font:focus+label:before {
+    font-weight: bold;
+    color: orange;
+}*/
