@@ -61,15 +61,26 @@ class Booking {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  modelito;
+  fecha: Date;
+  rangeDate: Date;
   customer: Customer;
   booking: Booking;
   bookings: Booking[];
+
+  getDateString(): string {
+    return this.fecha.getDate() + "/" + ("0" + (this.fecha.getMonth() + 1)).slice(-2) + "/" + this.fecha.getFullYear();
+  }
 
   ngOnInit() {
     this.customer = new Customer("Alfonso Cuadrado Rosado", "esesito@gmail.com");
     this.booking = new Booking("", false);
     this.bookings = [];
+    this.fecha = new Date();
+    this.rangeDate = new Date();
+  }
+
+  clickReserva(): void {
+    console.log("Click en reserva" + this.getDateString());
   }
 
   /*addBooking(){

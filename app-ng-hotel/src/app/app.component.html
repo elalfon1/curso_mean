@@ -118,9 +118,9 @@
 
 
     <div class="row featurette">
-        <div class="col-md-12">
+        <!--<div class="col-md-12">
 
-        </div>
+        </div>-->
         <div class="col-md-5">
 
             <form class="form-horizontal" role="form">
@@ -150,11 +150,11 @@
                     <label class="col-sm-6 control-label hidden-xs " for="fecha_fin">Tipo de habitación</label>
                     <div class="col-sm-6">
                         <div class="input-group date">
-                            <input class="form-control" id="fecha_inicio" placeholder="dd/mm/yyyy" [(ngModel)]="modelito" [ngModelOptions]="{standalone:true}" ngbDatepicker #d="ngbDatepicker" />
-                            <span class="input-group-addon" (click)="d.toggle()">
-						            <!--<span class="glyphicon glyphicon-calendar"></span>-->
-                            <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
-                            </span>
+                            <!--<input class="form-control" id="fecha_inicio" placeholder="dd/mm/yyyy" [(ngModel)]="modelito" [ngModelOptions]="{standalone:true}" />-->
+                            <material-datepicker [(date)]="fecha" [rangeStart]="rangeDate"></material-datepicker>
+                            <!--<span class="input-group-addon">
+						        <span class="glyphicon glyphicon-calendar"></span>
+                            </span>-->
                         </div>
                     </div>
 
@@ -172,7 +172,7 @@
 
                 <div class="form-group mt-30">
                     <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success btn-block">
+                        <button type="button" (click)="clickReserva()" class="btn btn-success btn-block">
                                 <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
                                 &nbsp;Reservar
                             </button>
