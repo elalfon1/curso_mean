@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 //styleUrls: ['./app.component.css', '../css/bootstrap.min.css','../css/carousel.css','../css/mis-estilos.css']
 
@@ -62,7 +62,7 @@ class Booking {
 })
 export class AppComponent implements OnInit {
   fecha: Date;
-  rangeDate: Date;
+  @Input() rangeDate: Date;
   customer: Customer;
   booking: Booking;
   bookings: Booking[];

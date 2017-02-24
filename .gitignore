@@ -12,3 +12,4 @@ node_modules
 /07_node_express/03_node_ejemplos/*.txt
 bd_hotel
 bd_libros
+/app-cliente-servidor/db_hotels
