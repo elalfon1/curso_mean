@@ -14,51 +14,11 @@
     margin-bottom: 15px;
 }
 
-.mi-navbar .navbar-brand {
-    height: 80px;
-}
-
-.mi-navbar .nav>li>a {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.mi-navbar .navbar-toggle {
-    padding: 10px;
-    margin: 25px 15px 25px 0;
-}
-
 @media screen and (max-width: 767px) {
     .mb-xs-15 {
         margin-bottom: 15px;
     }
-    .mi-navbar .navbar-brand {
-        height: 75px;
-        padding-top: 15px;
-    }
 }
-
-@media screen and (max-width: 295px) {
-    .mi-navbar .navbar-brand {
-        height: 74px;
-        padding-top: 15px;
-    }
-}
-
-.navbar-brand {
-    padding: 0px;
-}
-
-.navbar-brand>img {
-    height: 100%;
-    padding: 15px;
-    width: auto;
-}
-
-
-/* EXAMPLE 3
-
-line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
 
 
 /*
