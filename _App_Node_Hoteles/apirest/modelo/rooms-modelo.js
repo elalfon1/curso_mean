@@ -2,15 +2,22 @@ var moongose = require("mongoose");
 
 var Schemas = require("./schemas_hoteles");
 var Room = Schemas.Room;
-/*
-function showError(error, schema) {
-    schema.eachPath((campo) => {
-        if (error.errors[campo]) {
-            console.error(error.errors[campo].message);
-        }
+
+function grabarRoomObject(room, callback) {
+    let roomModel = new Room(room);
+
+    roomModel.save((error, habitacion) => {
+        if (error)
+            console.error("Error al grabar habitación");
+        else
+            console.log("Habitación grabada correctamente");
+
+        if (typeof callback != "undefined")
+            callback(error, habitacion);
     });
-}
-*/
+};
+
+
 function grabarRoom(num, esDoble, callback) {
     let room = new Room({
         "_id": num,
@@ -58,8 +65,18 @@ function leerAllRoom(callback) {
     });
 };
 
+
+function contarRoom(room, callback) {
+    Room.count(room, (error, count) => {
+        if (typeof callback != "undefined")
+            callback(error, count);
+    });
+};
+
+module.exports.grabarRoomObject = grabarRoomObject;
 module.exports.grabarRoom = grabarRoom;
 module.exports.borrarRoom = borrarRoom;
 module.exports.leerRoomPorId = leerRoomPorId;
 module.exports.leerRoomsPorTipo = leerRoomsPorTipo;
 module.exports.leerAllRoom = leerAllRoom;
+module.exports.contarRoom = contarRoom;

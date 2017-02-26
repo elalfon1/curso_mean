@@ -31,9 +31,9 @@ app.use('/users', users);
 
 //Delega esta url al modulo router de reservas
 //app.use('/misreservas', reservas);
-app.use('/api/habitaciones', habitaciones);
-app.use('/api/clientes', clientes);
-app.use('/api/reservas', reservas);
+app.use('/api/rooms', habitaciones);
+app.use('/api/customers', clientes);
+app.use('/api/bookings', reservas);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,5 @@
 solo_local/
 node_modules
-
 /MongoDB/mongomart-student
 /MongoDB/usb_drive
 /MongoDB/mongomart-student.zip
@@ -13,3 +12,4 @@ node_modules
 bd_hotel
 bd_libros
 /app-cliente-servidor/db_hotels
+bd_hotels

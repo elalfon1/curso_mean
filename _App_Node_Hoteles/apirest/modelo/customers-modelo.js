@@ -2,15 +2,23 @@ var moongose = require("mongoose");
 
 var Schemas = require("./schemas_hoteles");
 var Customer = Schemas.Customer;
-/*
-function showError(error, schema) {
-    schema.eachPath((campo) => {
-        if (error.errors[campo]) {
-            console.error(error.errors[campo].message);
-        }
+
+function grabarCustomerObject(customer, callback) {
+    let customerModel = new Customer(customer);
+
+    customerModel.save((error, cliente) => {
+        if (error) {
+            console.error("Error al grabar cliente");
+            //showError(error, Customer.schema);
+
+        } else
+            console.log("Cliente grabado correctamente");
+
+        if (typeof callback != "undefined")
+            callback(error, cliente);
     });
-}
-*/
+};
+
 function grabarCustomer(nombre, email, callback) {
     let customer = new Customer({
         "name": nombre,
@@ -65,6 +73,7 @@ function leerAllCustomer(callback) {
     });
 };
 
+module.exports.grabarCustomerObject = grabarCustomerObject;
 module.exports.grabarCustomer = grabarCustomer;
 module.exports.borrarCustomer = borrarCustomer;
 module.exports.leerCustomerPorId = leerCustomerPorId;

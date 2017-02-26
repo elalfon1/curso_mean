@@ -8,6 +8,22 @@ router.get("/", function(req, res, next) {
     });
 });
 
+// Post metodo
+
+router.post("/", function(req, res) {
+    customer = req.body;
+
+    var fnCallback = function(error, customer) {
+        if (error) {
+            console.error("No se ha leido de la bbdd");
+        } else {
+            res.json(customer);
+        }
+    };
+
+    modelCustomers.grabarCustomerObject(customer, fnCallback);
+});
+
 /*
 router.get("/:nombreCliente", function(req, res, next) {
     let nombreCliente = req.params.nombreCliente;

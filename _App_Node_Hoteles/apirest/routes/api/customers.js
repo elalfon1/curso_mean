@@ -4,26 +4,28 @@ var router = express.Router();
 
 var leerDefault = function(req, res, next) {
 
-    modelCustomers.leerAllCustomer((error, clientes) => {
-        if (error)
-            console.error(error);
-        else
-            res.send(clientes);
+    modelCustomers.leerAllCustomer((error, customers) => {
+        if (error) {
+            res.statusCode = 404;
+            res.send("No encontrado!");
+        } else
+            res.json(customers);
     });
 }
 
-router.get("/nombre/:nombreCliente?", function(req, res, next) {
+router.get("/name/:nombreCliente?", function(req, res, next) {
 
     let nombreCliente = req.params.nombreCliente;
 
     if (nombreCliente == null) {
         leerDefault(req, res, next);
     } else {
-        modelCustomers.leerCustomersPorNombre(nombreCliente, (error, cliente) => {
-            if (error)
-                console.error(error);
-            else
-                res.send(cliente);
+        modelCustomers.leerCustomersPorNombre(nombreCliente, (error, customers) => {
+            if (error) {
+                res.statusCode = 404;
+                res.send("No encontrado!");
+            } else
+                res.json(customers);
         });
     }
 });
@@ -35,11 +37,12 @@ router.get("/email/:emailCliente?", function(req, res, next) {
     if (emailCliente == null) {
         leerDefault(req, res, next);
     } else {
-        modelCustomers.leerCustomersPorEmail(emailCliente, (error, cliente) => {
-            if (error)
-                console.error(error);
-            else
-                res.send(cliente);
+        modelCustomers.leerCustomersPorEmail(emailCliente, (error, customers) => {
+            if (error) {
+                res.statusCode = 404;
+                res.send("No encontrado!");
+            } else
+                res.json(customers);
         });
     }
 
@@ -52,18 +55,15 @@ router.get("/:id?", function(req, res, next) {
         leerDefault(req, res, next);
     } else {
 
-        modelCustomers.leerCustomerPorId(id, (error, cliente) => {
-            if (error)
-                console.error(error);
-            else
-                res.send(cliente);
+        modelCustomers.leerCustomerPorId(id, (error, customers) => {
+            if (error) {
+                res.statusCode = 404;
+                res.send("No encontrado!");
+            } else
+                res.json(customers);
         });
 
     }
-    /*else {
-           console.log("No existe");
-           res.sendStatus(404);
-       }*/
 
 });
 
@@ -72,16 +72,36 @@ router.delete("/:id", function(req, res, next) {
     let id = req.params.id;
 
     if (id != null) {
-        modelCustomers.borrarCustomer(id, (error, cliente) => {
-            if (error)
-                console.error(error);
-            else
+        modelCustomers.borrarCustomer(id, (error, customer) => {
+            if (error) {
+                res.statusCode = 404;
+                res.send("No encontrado!");
+            } else
                 res.send("Borrado el cliente con id: " + id);
             //res.send(cliente);
         });
     } else {
         res.sendStatus(404);
     }
+});
+
+
+
+// Post metodo
+
+router.post("/", function(req, res) {
+    let customer = req.body;
+
+    var fnCallback = function(error, customer) {
+        if (error) {
+            res.statusCode = 404;
+            res.send("No encontrado!");
+        } else {
+            res.json(customer);
+        }
+    };
+
+    modelCustomers.grabarCustomerObject(customer, fnCallback);
 });
 
 

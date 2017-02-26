@@ -18,7 +18,6 @@ var SchemaRoom = new Schema({
 
 
 var SchemaCustomer = new Schema({
-    //_id: Schema.Types.ObjectId,
     name: {
         type: String,
         required: [true, '{PATH} es obligatorio'],
