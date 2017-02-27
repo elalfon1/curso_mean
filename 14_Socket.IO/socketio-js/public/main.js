@@ -1,5 +1,5 @@
 //Establece la conexion creando un nuevo socket
-var socket = io.connect("http://localhost:8080", { "forceNew": true });
+var socket = io.connect("http://localhost:8080/chat", { "forceNew": true });
 
 socket.on("mensajes", alRecibirMensaje);
 socket.on("nuevo-usuario", alConectarseMasUsuarios);
@@ -39,6 +39,7 @@ function alDesconectarseAlgunUsuario(cadena) {
 function enviarMensaje(form) {
     var nuevoMensaje = {
         author: document.getElementById("username").value,
+        target: document.getElementById("target").value,
         text: document.getElementById("texto").value,
     }
 

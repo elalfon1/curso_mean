@@ -24,4 +24,12 @@ export class CustomerComponent implements OnInit {
   enviar() {
     this.customerServ.enviar(this.customer);
   }
+
+  /*recibir() {
+    this.customerServ.recibir().subscribe(
+      data => console.log(JSON.stringify(data)),
+      error => alert(error),
+      () => console.log("Finished")
+    );
+  }*/
 }

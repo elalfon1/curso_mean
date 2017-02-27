@@ -19,9 +19,13 @@ var messages = [{
     author: "Carlos Azaustre"
 }];
 
+var socketsConexiones = {};
+
 app.use(express.static('public'));
 
-io.on("connection", alConectarseAlguien);
+io
+    .of("/chat")
+    .on("connection", alConectarseAlguien);
 
 function alConectarseAlguien(socket) {
     contador++;
@@ -35,8 +39,19 @@ function alConectarseAlguien(socket) {
     socket.on("nuevo-mensaje", function(data) {
         //data.id = messages[messages.length - 1].id + 1;
         messages.push(data);
+
+        //Cuando creamos un primer mensaje, guardamos en el array de sockets
+        if (!socketsConexiones[data.author]) {
+            socketsConexiones[data.author] = socket;
+        }
+
+        //Si es privado
+        if (data.target !== "") {
+            socketsConexiones[data.target].emit("mensajes", messages);
+            socket.emit("mensajes", messages);
+        } else
         //Lo emite a todos los sockets
-        io.sockets.emit("mensajes", messages);
+            io.sockets.emit("mensajes", messages);
     });
 
     socket.on("disconnect", function() {
