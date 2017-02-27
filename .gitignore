@@ -1,5 +1,6 @@
 solo_local/
-node_modules
+node_modules/
+!node_modules/angular2-material-datepicker/
 /MongoDB/mongomart-student
 /MongoDB/usb_drive
 /MongoDB/mongomart-student.zip

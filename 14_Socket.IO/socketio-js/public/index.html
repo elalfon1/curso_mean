@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Aplicación con Sockets</title>
+    <!-- Express al importar io, éste "publica" la libreria javascrip-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h1>Chat Node JS</h1>
+    <div id="divMessages"></div>
+    <br/>
+    <div id="divConexiones"></div>
+    <br/>
+    <form onsubmit="return enviarMensaje(this)">
+        <input type="text" id="username" placeholder="Tu nombre..." /><br/>
+        <input type="text" id="texto" placeholder="Escibre tu mensaje" /><br/>
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+
+</html>

@@ -32,6 +32,7 @@ function grabarBookingObject(booking, callback) {
                         if (typeof callback != "undefined")
                             callback(error, reserva);
                     });
+
                 } else {
                     if (typeof callback != "undefined")
                         callback("Error al grabar reserva: no existe el cliente");
