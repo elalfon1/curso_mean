@@ -10,6 +10,7 @@ import { Customer } from '../models/customer.model';
 })
 export class CustomerComponent implements OnInit {
   customer: Customer;
+  customers: Customer[];
   customerServ: CustomerService;
 
   //Cuando lo inyecto lo pasa como parametro en el constructor
@@ -23,6 +24,27 @@ export class CustomerComponent implements OnInit {
 
   enviar() {
     this.customerServ.enviar(this.customer);
+  }
+
+  enviarHttp() {
+    this.customerServ.enviar(this.customer);
+  }
+
+  /*recibir() {
+    this.customerServ.recibir(this.customer.name, function(datos){
+      alert("Ha fubncionado"+datos);
+    });
+  }*/
+
+  recibirHttp() {
+    console.log("ejecuto");
+    this.customerServ.recibir(this.customer.name).subscribe(
+      customers => {
+        this.customers = customers;
+        console.log(customers);
+      },
+      error => console.error(`Error: ${error}`)
+    );
   }
 
   /*recibir() {
