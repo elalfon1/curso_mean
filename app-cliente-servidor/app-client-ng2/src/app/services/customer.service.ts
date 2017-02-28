@@ -8,11 +8,6 @@ export class CustomerService {
     url: string = "http://localhost:3000/api/customers/";
     constructor(private http: Http) { }
 
-
-    /*get products() {
-      return this.http.get(this.url+"/customers")
-        .map(response => response.json());
-    }*/
     public enviar(customer: Customer) {
         console.log("post");
         //build header options
@@ -27,14 +22,13 @@ export class CustomerService {
             .post(this.url, body, options)
             .map(response => response.json())
             .subscribe(
-            data => console.log('Success uploading the opinion ', data),
-            error => console.error("Error: " + error)
+                data => console.log('Success uploading the opinion ', data),
+                error => console.error("Error: " + error)
             );
     }
 
     public recibir(name: string) {
-        //private url:string = ""
-        return this.http.get(this.url+"/name/"+name)
+        return this.http.get(this.url + "/name/" + name)
             .map(response => response.json());
     }
 

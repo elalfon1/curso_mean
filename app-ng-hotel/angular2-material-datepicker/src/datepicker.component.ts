@@ -159,7 +159,6 @@ import { Calendar } from './calendar';
       .datepicker__input {
         outline: none;
         border-radius: 0.1rem;
-        padding: .2em .6em;
         font-size: 14px;
       }
     `
@@ -175,7 +174,7 @@ import { Calendar } from './calendar';
         [placeholder]="placeholder"
         [ngStyle]="{'color': altInputStyle ? colors['white'] : colors['black'],
                     'background-color': altInputStyle ? accentColor : colors['white'],
-                    'border': altInputStyle ? '' : '1px solid #dadada'}"
+                    'border': altInputStyle ? '' : '0px solid #dadada'}"
         (click)="onInputClick()"
         [(ngModel)]="inputText"
         readonly="true"

@@ -38,6 +38,12 @@
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .well {
+        margin-top: 30px;
+    }
+}
+
 @media screen and (max-width: 295px) {
     .mi-navbar .navbar-brand {
         height: 74px;

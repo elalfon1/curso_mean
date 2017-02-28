@@ -1,0 +1,62 @@
+<form class="form-horizontal" role="form">
+
+    <header>
+        <h1>Reserva con nosotros</h1>
+    </header>
+
+
+    <div class="form-group">
+        <label class="col-sm-12 control-label" for="nombre">Nombre y Apellidos</label>
+        <div class="col-sm-12">
+            <input id="nombre" class="form-control" type="text" placeholder="Nombre Apellido1 Apellido2" [(ngModel)]="customer.name" [ngModelOptions]="{standalone:true}" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-12 control-label" for="email">Correo electrónico</label>
+        <div class="col-sm-12">
+            <input id="email" class="form-control" type="email" placeholder="correo@dominio.com" [(ngModel)]="customer.email" [ngModelOptions]="{standalone:true}" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-6 control-label" for="fecha_inicio">Fecha</label>
+        <label class="col-sm-6 control-label hidden-xs " for="fecha_fin">Tipo de habitación</label>
+        <div class="col-sm-6">
+            <div class="input-group date">
+                <!--<input class="form-control" id="fecha_inicio" placeholder="dd/mm/yyyy" [(ngModel)]="modelito" [ngModelOptions]="{standalone:true}" />-->
+                <material-datepicker [(date)]="fecha" [rangeStart]="rangeDate"></material-datepicker>
+                <!--<span class="input-group-addon">
+						        <span class="glyphicon glyphicon-calendar"></span>
+                            </span>-->
+            </div>
+        </div>
+
+        <label class="col-sm-6 control-label hidden-sm hidden-md hidden-lg mt-15" for="tipo_habitacion">Tipo de habitación</label>
+        <div class="col-sm-6">
+            <select id="hotel" class="form-control" [(ngModel)]="booking.isDoubleString" [ngModelOptions]="{standalone:true}">
+                <!--[(ngModel)]="booking.isDouble" [ngModelOptions]="{standalone:true}"-->
+                            <!--<option [attr.value]="true" [attr.selected]="booking.isDouble == false ? true : null">Simple</option>
+                            <option [attr.value]="false" [attr.selected]="booking.isDouble == true ? true : null">Doble</option>-->
+
+                            <option value="false">Simple</option>
+                            <option value="true">Doble</option>
+                        </select>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group mt-30">
+        <div class="col-sm-12">
+            <button type="button" (click)="clickReserva()" class="btn btn-success btn-block">
+                                <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+                                &nbsp;Reservar
+                            </button>
+        </div>
+    </div>
+
+
+</form>

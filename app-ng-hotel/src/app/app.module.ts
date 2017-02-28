@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 import { DatepickerModule } from 'angular2-material-datepicker'
 
 import { AppComponent } from './app.component';
+import { CustomerComponent } from './customer/customer.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
