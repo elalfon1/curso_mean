@@ -1,13 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 class Room {
-  id: number;
-  isDouble: boolean;
 
-  constructor(id: number, isDouble: boolean) {
-    this.id = id;
-    this.isDouble = isDouble;
-  }
+  constructor(public id: number, public isDouble: boolean) {}
 
   getType(): string {
     return this.isDouble ? "doble" : "simple";
